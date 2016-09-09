@@ -1,15 +1,14 @@
 var largestPrimeFactor = function(num) {
 
     var i = 2;
-  while (i < num) {
+    while (i <= num) {
         if (num % i == 0) {
+            num /= i;
+        } else {
             i++;
-            break;
-      } else {
-            i++;
-        return i;
-      }
+        }
     }
-}
+    return i;
+};
 
-console.log(largestPrimeFactor(10));
+console.log(largestPrimeFactor(601));
