@@ -1,18 +1,16 @@
 var sieve = function(num) {
 
     primeArray = [];
-    var x = 2
 
-    while (x < num) {
-        if (num < 2) {
-            return primeArray;
+    for (var x = 2; x < num; x++) {
+        for (var y = 2; y < x; y++) {
+            if (num < x) {
+                return primeArray;
+            }
         }
-        else if (num % x == 0) {
-            num /= x;
-        } else {
-       		primeArray.push(num);
-    	}
+        primeArray.push(num);
     }
+    return primeArray;
 };
 
-console.log(sieve(10));
+console.log(sieve(33));
