@@ -1,20 +1,21 @@
 var sieve = function(num) {
 
-    primeArray = [];
+    var primeArray = [];
     if (num < 2) {
-        return primeArray;
+        return primeOne;
     }
-
+    
     var i = 2;
     while (i <= num) {
-        if (num % i == 0) {
-            num /= i;
-         } else {
+        var j = 2;
+        while (j <= i) {
+            if (num % i == 0) { 
+                break;
+            } 
             primeArray.push(i);
-            i++;
         }
+        i++;
     }
-    return primeArray;
 };
 
-console.log(sieve(15));
+console.log(sieve(10));
