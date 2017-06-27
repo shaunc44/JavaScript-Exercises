@@ -43,7 +43,7 @@
 ### 11. What is the difference between *undefined* and *not* *defined*  in JavaScript?  
 * **Not defined** occurs when attempting to use a variable that does not exist  
 and has not been declared
-* **Undefined** occurs when trying to print a variable that has been declared,  
+* **Undefined** occurs when trying to print or return a variable that has been declared,  
 but no value has been assigned  
 
 ### 12. What is the output of the code below?  
@@ -84,7 +84,7 @@ var emp3 = new Employee("Ren","Pluto",2500);
 ```
 Each instance variable emp1, emp2, ... has its own copy of the private method **increaseSalary()**  
 
-14. What is a “closure” in JavaScript? Provide an example  
+### 14. What is a **“closure”** in JavaScript? Provide an example  
 A closure is a function defined inside another function (parent function) and  
 has access to variables declared in their own scope, parent scope and global scope  
 ```javascript
@@ -117,7 +117,116 @@ innerFuncVar = y
 globalVar = abc
 ```
 
-15. 
+### 15.  Write a *mul* function which will produce the following outputs when invoked:  
+```javascript
+console.log(mul(2)(3)(4)); // output : 24 
+console.log(mul(4)(3)(4)); // output : 48
+```
+Answer:
+```javascript
+function mul (x) {
+    return function (y) { // anonymous function 
+        return function (z) { // anonymous function 
+            return x * y * z; 
+        };
+    };
+}
+```
+Two anonymous functions inside *mul* function
+
+### 16.  How to empty an array in JavaScript?  
+```javascript
+var arrayList = ['a', 'b', 'c', 'd', 'e', 'f'];
+```
+
+Method 1:
+```javascript
+arrayList = [];
+```
+This will empty the list; does not empty references that point to original list  
+```javascript
+var arrayList = ['a','b','c','d','e','f']; // Created array 
+var anotherArrayList = arrayList;  // Referenced arrayList by another variable 
+arrayList = []; // Empty the array 
+console.log(anotherArrayList); // Output ['a','b','c','d','e','f']
+```
+
+Method 2:
+```javascript
+arrayList.length = 0;
+```
+This will empty the original list and references that point to the original list  
+```javascript
+var arrayList = ['a','b','c','d','e','f']; // Created array 
+var anotherArrayList = arrayList;  // Referenced arrayList by another variable 
+arrayList.length = 0; // Empty the array by setting length to 0
+console.log(anotherArrayList); // Output []
+```
+
+Method 3:
+```javascript
+arrayList.splice(0, arrayList.length);
+```
+This will empty the original list and references that point to the original list  
+```javascript
+var arrayList = ['a','b','c','d','e','f']; // Created array 
+var anotherArrayList = arrayList;  // Referenced arrayList by another variable 
+arrayList.splice(0, arrayList.length); // Empty the array by setting length to 0
+console.log(anotherArrayList); // Output []
+```
+
+### 17. What is the output of the following code?  
+```javascript
+var output = (function(x){
+    delete x;
+    return x;
+  })(0);
+  
+  console.log(output);
+```
+Answer: 0  
+Delete deletes properties of objects, whereas x is a local variable of which delete doesn't affect  
+
+### 18. What is the output of the following code?  
+```javascript
+var x = 1;
+var output = (function(){
+    delete x;
+    return x;
+  })();
+
+  console.log(output);
+```
+Answer: 1  
+x is a global variable not a property of an object  
+
+### 19. What will be the output of the code below?  
+```javascript
+var x = { foo : 1 };
+var output = (function(){
+    delete x.foo;
+    return x.foo;
+  })();
+
+  console.log(output);
+```
+Answer: undefined  
+Here x is a global variable not a property of the object  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
