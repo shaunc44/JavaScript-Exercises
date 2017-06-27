@@ -1,8 +1,8 @@
-1. Can you name two programming paradigms important for JavaScript app developers?  
+###1. Can you name two programming paradigms important for JavaScript app developers?  
 	- OOP programming with prototypal inheritance  
 	- function programming  
 
-2. What is functional programming?  
+##2. What is functional programming?  
 	- produced composing mathematical functions and avoids sharing state & data  
 
 3. What is the difference between classical inheritance and prototypal inheritance?  
@@ -40,10 +40,10 @@
 	- engine runs in an event loop  
 	- when blocking op is needed, request is started, code keeps running without blocking the result; when response is ready, interrupt is fired, causes event handler to run, where control flow continues  
 
-11. What is the difference between *undefined and *not defined in JavaScript?  
-	- *Not *defined occurs when attempting to use a variable that does not exist  
+11. What is the difference between **undefined** and **not defined** in JavaScript?  
+	- **Not defined** occurs when attempting to use a variable that does not exist  
 	and has not been declared
-	- *Undefined occurs when trying to print a variable that has been declared,  
+	- **Undefined** occurs when trying to print a variable that has been declared,  
 	but no value has been assigned  
 
 12. What is output of the code below?  
