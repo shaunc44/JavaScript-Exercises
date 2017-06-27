@@ -1,6 +1,6 @@
 ### 1. Can you name two programming paradigms important for JavaScript app developers?  
 * OOP programming with prototypal inheritance  
-* function programming  
+* functional programming  
 
 ### 2. What is functional programming?  
 * produced composing mathematical functions and avoids sharing state & data  
@@ -40,13 +40,13 @@
 * engine runs in an event loop  
 * when blocking op is needed, request is started, code keeps running without blocking the result; when  response is ready, interrupt is fired, causes event handler to run, where control flow continues  
 
-### 11. What is the difference between *undefined* and *not* *defined* in JavaScript?  
+### 11. What is the difference between *undefined* and *not* *defined*  in JavaScript?  
 * **Not defined** occurs when attempting to use a variable that does not exist  
 and has not been declared
 * **Undefined** occurs when trying to print a variable that has been declared,  
 but no value has been assigned  
 
-### 12. What is output of the code below?  
+### 12. What is the output of the code below?  
 ```javascript
 var y = 1;
   if (function f(){}) {
@@ -54,6 +54,71 @@ var y = 1;
   }
   console.log(y);
 ```
+-> 1undefined
+
+### 13. What is the drawback of creating true private methods in JavaScript?  
+```javascript
+var Employee = function (name, company, salary) {
+    this.name = name || "";       //Public attribute default value is null
+    this.company = company || ""; //Public attribute default value is null
+    this.salary = salary || 5000; //Public attribute default value is null
+
+    // Private method
+    var increaseSalary = function () {
+        this.salary = this.salary + 1000;
+    };
+
+    // Public method
+    this.dispalyIncreasedSalary = function() {
+        increaseSlary();
+        console.log(this.salary);
+    };
+};
+
+// Create Employee class object
+var emp1 = new Employee("John","Pluto",3000);
+// Create Employee class object
+var emp2 = new Employee("Merry","Pluto",2000);
+// Create Employee class object
+var emp3 = new Employee("Ren","Pluto",2500);
+```
+Each instance variable emp1, emp2, ... has its own copy of the private method **increaseSalary()**  
+
+14. What is a “closure” in JavaScript? Provide an example  
+A closure is a function defined inside another function (parent function) and  
+has access to variables declared in their own scope, parent scope and global scope  
+```javascript
+var globalVar = "abc"; 
+
+// Parent self invoking function 
+(function outerFunction (outerArg) { // begin of scope outerFunction
+    // Variable declared in outerFunction function scope 
+    var outerFuncVar = 'x';    
+    // Closure self-invoking function 
+    (function innerFunction (innerArg) { // begin of scope innerFunction
+        // variable declared in innerFunction function scope
+        var innerFuncVar = "y"; 
+        console.log(          
+            "outerArg = " + outerArg + "\n" +
+            "outerFuncVar = " + outerFuncVar + "\n" +
+            "innerArg = " + innerArg + "\n" +
+            "innerFuncVar = " + innerFuncVar + "\n" +
+            "globalVar = " + globalVar);
+ 
+    }// end of scope innerFunction)(5); // Pass 5 as parameter 
+}// end of scope outerFunction )(7); // Pass 7 as parameter 
+```
+Output of code:
+```
+outerArg = 7
+outerFuncVar = x
+innerArg = 5
+innerFuncVar = y
+globalVar = abc
+```
+
+15. 
+
 
 
 
