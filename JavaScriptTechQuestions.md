@@ -117,7 +117,7 @@ innerFuncVar = y
 globalVar = abc
 ```
 
-### 15.  Write a *mul* function which will produce the following outputs when invoked:  
+### 15.  Write a *'mul'*  function which will produce the following outputs when invoked:  
 ```javascript
 console.log(mul(2)(3)(4)); // output : 24 
 console.log(mul(4)(3)(4)); // output : 48
@@ -198,7 +198,7 @@ var output = (function(){
   console.log(output);
 ```
 Answer: 1  
-x is a global variable not a property of an object  
+x is not a property of an object, but rather a global variable  
 
 ### 19. What will be the output of the code below?  
 ```javascript
@@ -211,9 +211,44 @@ var output = (function(){
   console.log(output);
 ```
 Answer: undefined  
-Here x is a global variable not a property of the object  
+Here delete deletes foo which is a property of an object(x)  
 
 
+### 20. What will be the output of the code below?  
+```javascript
+var Employee = {
+  company: 'xyz'
+}
+var emp1 = Object.create(Employee);
+delete emp1.company
+console.log(emp1.company);
+```
+Output = xyz  
+emp1.company is a prototype property and *delete* doesn't delete prototype properties  
+can delete proto properties by using *emp1.__proto__.company*
+
+### 21. What will be the output of the code below?  
+```javascript
+var trees = ["xyz","xxxx","test","ryan","apple"];
+delete trees[3];
+
+  console.log(trees.length);
+```
+Output = 5
+Delete replaces the array element with undefined in Firefox and undefined x 1 in Chrome  
+
+### 22.  What is the output of the code below?  
+```javascript
+var bar = true;
+console.log(bar + 0);
+console.log(bar + "xyz");  
+console.log(bar + true);  
+console.log(bar + false);
+```
+Output = 1, "truexyz", 2, 1  
+Guidelines for addition operator:  
+1. anything with String is concatenated  
+2. then anything with number is added (but not string + number)  
 
 
 
