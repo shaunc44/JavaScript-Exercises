@@ -41,9 +41,9 @@
 	- when blocking op is needed, request is started, code keeps running without blocking the result; when response is ready, interrupt is fired, causes event handler to run, where control flow continues  
 
 ### 11. What is the difference between *undefined* and *not* *defined* in JavaScript?  
-* *Not* *defined** occurs when attempting to use a variable that does not exist  
+* **Not defined** occurs when attempting to use a variable that does not exist  
 and has not been declared
-* *Undefined* occurs when trying to print a variable that has been declared,  
+* **Undefined** occurs when trying to print a variable that has been declared,  
 but no value has been assigned  
 
 ### 12. What is output of the code below?  
