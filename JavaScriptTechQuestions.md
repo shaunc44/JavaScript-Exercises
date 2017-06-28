@@ -54,7 +54,7 @@ var y = 1;
   }
   console.log(y);
 ```
--> 1undefined
+Answer: 1undefined
 
 ### 13. What is the drawback of creating true private methods in JavaScript?  
 ```javascript
@@ -82,7 +82,7 @@ var emp2 = new Employee("Merry","Pluto",2000);
 // Create Employee class object
 var emp3 = new Employee("Ren","Pluto",2500);
 ```
-Each instance variable emp1, emp2, ... has its own copy of the private method **increaseSalary()**  
+*Each instance variable emp1, emp2, ... has its own copy of the private method __increaseSalary()__*  
 
 ### 14. What is a **“closure”** in JavaScript? Provide an example  
 A closure is a function defined inside another function (parent function) and  
@@ -139,7 +139,7 @@ Two anonymous functions inside *mul* function
 var arrayList = ['a', 'b', 'c', 'd', 'e', 'f'];
 ```
 
-Method 1:
+#### Method 1:
 ```javascript
 arrayList = [];
 ```
@@ -151,7 +151,7 @@ arrayList = []; // Empty the array
 console.log(anotherArrayList); // Output ['a','b','c','d','e','f']
 ```
 
-Method 2:
+#### Method 2:
 ```javascript
 arrayList.length = 0;
 ```
@@ -163,7 +163,7 @@ arrayList.length = 0; // Empty the array by setting length to 0
 console.log(anotherArrayList); // Output []
 ```
 
-Method 3:
+#### Method 3:
 ```javascript
 arrayList.splice(0, arrayList.length);
 ```
@@ -185,7 +185,7 @@ var output = (function(x){
   console.log(output);
 ```
 Answer: 0  
-Delete deletes properties of objects, whereas x is a local variable of which delete doesn't affect  
+*Delete deletes properties of objects, whereas x is a local variable of which delete doesn't affect*  
 
 ### 18. What is the output of the following code?  
 ```javascript
@@ -198,7 +198,7 @@ var output = (function(){
   console.log(output);
 ```
 Answer: 1  
-x is not a property of an object, but rather a global variable  
+*x is not a property of an object, but rather a global variable*  
 
 ### 19. What will be the output of the code below?  
 ```javascript
@@ -211,7 +211,7 @@ var output = (function(){
   console.log(output);
 ```
 Answer: undefined  
-Here delete deletes foo which is a property of an object(x)  
+*Here delete deletes foo which is a property of an object x*  
 
 
 ### 20. What will be the output of the code below?  
@@ -224,18 +224,18 @@ delete emp1.company
 console.log(emp1.company);
 ```
 Output = xyz  
-emp1.company is a prototype property and *delete* doesn't delete prototype properties  
-can delete proto properties by using *emp1.__proto__.company*
+*emp1.company is a prototype property and *delete* doesn't delete prototype properties*  
+*can delete proto properties by using __emp1.__proto__.company__*
 
 ### 21. What will be the output of the code below?  
 ```javascript
 var trees = ["xyz","xxxx","test","ryan","apple"];
 delete trees[3];
 
-  console.log(trees.length);
+console.log(trees.length);
 ```
-Output = 5
-Delete replaces the array element with undefined in Firefox and undefined x 1 in Chrome  
+Output = 5  
+*Delete replaces the array element with undefined in Firefox and undefined x 1 in Chrome*  
 
 ### 22.  What is the output of the code below?  
 ```javascript
@@ -246,9 +246,10 @@ console.log(bar + true);
 console.log(bar + false);
 ```
 Output = 1, "truexyz", 2, 1  
+
 Guidelines for addition operator:  
-1. anything with String is concatenated  
-2. then anything with number is added (but not string + number)  
+*1. anything plus a String is concatenated*  
+*2. then, anything plus a number (except string + number)*  
 
 
 
