@@ -1,3 +1,7 @@
+Sources:  
+https://www.codementor.io/nihantanu/21-essential-javascript-tech-interview-practice-questions-answers-du107p62z  
+
+
 ### 1. Can you name two programming paradigms important for JavaScript app developers?  
 * OOP programming with prototypal inheritance  
 * functional programming  
@@ -251,18 +255,131 @@ Guidelines for addition operator:
 *1. anything plus a String is concatenated*  
 *2. then, anything plus a number (except string + number)*  
 
+### 23. What is the output of the code below?  
+```javascript
+var bar = true;
+var z = 1, y = z = typeof y;
+console.log(y);
+```
+Output = undefined  
+*Per the __associativity rule__, proceed from right to left*  
+*typeof y evaluates to undefined, then z is assigned undefined,*  
+*then y is assigned undefined, then z is assigned 1*  
 
+### 24. What is the output of the code below?  
+```javascript
+// NFE (Named Function Expression 
+var foo = function bar(){ return 12; };
+typeof bar();
+```
+Output = Reference Error  
 
+#### Answer 1  
+```javascript
+var bar = function(){ return 12; };
+typeof bar();
+```
 
+#### Answer 2  
+```javascript
+function bar(){ return 12; };
+typeof bar();
+```
 
+*A function definition can have only one reference variable as its function name*
 
+### 25. What is the difference between the function declarations below?  
+```javascript
+var foo = function() {
+	//some code
+};
+```
+```javascript
+function bar() {
+	//some code
+};
+```
+*foo() is defined at run-time whereas bar() is defined a parse-time*  
 
+Run-Time function declaration:  
+```javascript
+foo(); // Calling foo function here will give an Error
+var foo = function(){ 
+  console.log("Hi I am inside Foo");
+};
+```
 
+Parse-Time function declaration:  
+```javascript
+bar(); // Calling foo function will not give an Error
+function bar(){ 
+  console.log("Hi I am inside Foo");
+};
+```
 
+### 26. What is function hoisting in JavaScript?  
+```javascript
+var foo = function foo(){ 
+  return 12; 
+};
+```
+Variables and Functions can be hoisted in JavaScript -- where default behavior  
+is moving all declarations to the top of the current scope  
 
+### 27. What is the output of code below?  
 
+```javascript
+var salary = "$1000";
 
+(function () {
+  console.log("Original salary was " + salary);
+  var salary = "$5000";
+  console.log("My New Salary " + salary);
+})();
+```
+Output: undefined, $5000  
+*Salary doesn't pass from outer scope, because it was __re-declared__ inside the function*  
+*therefore hoisting kicks in salary becomes undefined*  
 
+### 28. What is the instanceof operator in JavaScript? What is the output of the code below?  
+```javascript
+function foo(){ 
+  return foo; 
+}
+new foo() instanceof foo;
+```
+Output: false  
+
+The **instanceof** operator tests whether an object has the prototype property of a constructor  
+`*object* instance of *constructor*`  
+
+```javascript
+// defining constructors
+function C() {}
+function D() {}
+
+var o = new C();
+
+// true, because: Object.getPrototypeOf(o) === C.prototype
+o instanceof C;
+
+// false, because D.prototype is nowhere in o's prototype chain
+o instanceof D;
+```
+
+### 29. If we have a JavaScript associative array:  
+```javascript
+var counterArray = {
+  A : 3,
+  B : 4
+};
+counterArray["C"] = 1;
+```
+
+### How can we calculate the length of the above associative array's counterArray?  
+```javascript
+Object.keys(counterArray).length // Output 2 
+```
 
 
 
